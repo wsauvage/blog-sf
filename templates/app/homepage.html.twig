@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="example-wrapper">
+    <h1>Homepage ✅</h1>
+
+    {% if is_granted('ROLE_MANAGER') %}
+        <a href="{{ path('homepage_manager') }}">Manager homepage</a>
+    {% endif %}
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('admin') }}">Admin homepage</a>
+    {% endif %}
+
+    <a href="{{ path('logout') }}">Logout</a>
+</div>
+{% endblock %}
